@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}About Me{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>About Me</h1>
+    <p>I developer that specialized in slowing down my classmates and asking lots of questions!</p>
+    <p>Here's a picture of me when I was a Realtor in Las Vegas</p>
+</div>
+<img src="{% static 'img/Pro pic 2_sunglasses.jpg' %}" style="width: 30%;">
+{% endblock content %}
