@@ -9,4 +9,5 @@
     {{ form.as_p }}
     <input type="submit" class="ctn btn-primary" value="Log In">
 </form>
+<small>Did you forget your password? <a href="{% url 'password_reset' %}">click here</a> To reset it</small>
 {% endblock content %}
