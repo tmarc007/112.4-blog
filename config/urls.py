@@ -23,7 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls), #homepage.com/admin
     path("", include("pages.urls")), #homepage.com/
     path("posts/", include("posts.urls")), #homepage.com/posts/
-    path("accounts/", include("django.contrib.auth.urls")) #homepage.com/accounts/
+    path("accounts/", include("django.contrib.auth.urls")), #homepage.com/accounts/
+    path("accounts/", include("accounts.urls")), #homepage.com/accounts/
+    
 ]
 
 # homepage.com/   = homepage

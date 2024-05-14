@@ -1,4 +1,4 @@
-from django.views.generic import CreateView
+<!-- from django.views.generic import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 
@@ -6,4 +6,17 @@ from django.urls import reverse_lazy
 class SignUpView(CreateView):
     template_name = "registration/signup.html"
     form_class = UserCreationForm
-    success_url = reverse_lazy("login")
+    success_url = reverse_lazy("login") -->
+
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<h1>Sign Up</h1>
+<form method="Post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-success" value="Sign Up">
+</form>
+{% endblock content %}    
