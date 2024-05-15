@@ -21,10 +21,10 @@ class PostListView(ListView):
         published_status = Status.objects.get(name="published")
         context["post_list"] = (
             Post.objects.filter(status=published_status)
-            .order_by("created_on").reverse()
+            .order_by("created_on").reverse())
         return context
 
-class DraftPostListView(ListView)
+class DraftPostListView(ListView):
     template_name = "posts/list.html"
     model = Post
 
@@ -50,11 +50,11 @@ class PostDetailView(UserPassesTestMixin, DetailView):
         if post.status.name == "published":
             return True
         else:
-        if post.status.name == "draft":
-            return post.author == self.request.user
-        elif post.status.name == "archived":
-            if self.request.user:
-                return True
+            if post.status.name == "draft":
+                return post.author == self.request.user
+            elif post.status.name == "archived":
+                if self.request.user:
+                    return True
         return False
         
         
@@ -110,7 +110,7 @@ class DraftPostListView(LoginRequiredMixin, ListView):
                 author=self.request.user).order_by("created_on").reverse()
         return context
     
-    class ArchivedPostListView(LoginRequiredMixin, ListView)
+class ArchivedPostListView(LoginRequiredMixin, ListView):
     template_name = "posts/detail.html"
     model = Post
 
